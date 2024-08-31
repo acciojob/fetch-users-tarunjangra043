@@ -1,5 +1,5 @@
 import "regenerator-runtime/runtime";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const UserList = () => {
   const [users, setUsers] = useState([]);
@@ -8,7 +8,6 @@ const UserList = () => {
 
   const fetchUsers = async () => {
     setLoading(true);
-    setError("");
     try {
       const response = await fetch("https://reqres.in/api/users");
       if (!response.ok) {
@@ -23,6 +22,10 @@ const UserList = () => {
     }
   };
 
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+
   return (
     <div>
       <button className="btn" onClick={fetchUsers}>
@@ -33,7 +36,6 @@ const UserList = () => {
       {users.length === 0 && !loading && !error && <p>No data found</p>}
       {users.length > 0 && (
         <table>
-          {users.length === 0 && !loading && !error && <tr>No data found</tr>}
           <thead>
             <tr>
               <th>Avatar</th>
