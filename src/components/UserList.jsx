@@ -33,6 +33,7 @@ const UserList = () => {
       {users.length === 0 && !loading && !error && <p>No data found</p>}
       {users.length > 0 && (
         <table>
+          {users.length === 0 && !loading && !error && <tr>No data found</tr>}
           <thead>
             <tr>
               <th>Avatar</th>
