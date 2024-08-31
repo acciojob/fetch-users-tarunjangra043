@@ -33,35 +33,37 @@ const UserList = () => {
       </button>
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
-      {users.length === 0 && !loading && !error && <p>No data found</p>}
-      {users.length > 0 && (
-        <table>
-          <thead>
+      <table>
+        <thead>
+          <tr>
+            <th>Avatar</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          {users.length === 0 && !loading && !error && (
             <tr>
-              <th>Avatar</th>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Email</th>
+              <td colSpan={4}>No data found</td>
             </tr>
-          </thead>
-          <tbody>
-            {users.map((user) => (
-              <tr key={user.id}>
-                <td>
-                  <img
-                    src={user.avatar}
-                    alt={`${user.first_name} ${user.last_name}`}
-                    style={{ width: 50, height: 50, borderRadius: "50%" }}
-                  />
-                </td>
-                <td>{user.first_name}</td>
-                <td>{user.last_name}</td>
-                <td>{user.email}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      )}
+          )}
+          {users.map((user) => (
+            <tr key={user.id}>
+              <td>
+                <img
+                  src={user.avatar}
+                  alt={`${user.first_name} ${user.last_name}`}
+                  style={{ width: 50, height: 50, borderRadius: "50%" }}
+                />
+              </td>
+              <td>{user.first_name}</td>
+              <td>{user.last_name}</td>
+              <td>{user.email}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };
