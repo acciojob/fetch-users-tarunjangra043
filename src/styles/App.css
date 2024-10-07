@@ -1,1 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.btn {
+  background-color: rgb(104, 135, 248);
+  font-weight: 500;
+}
+.btn:hover {
+  background-color: rgb(47, 47, 120);
+}
 
+#title {
+  color: rgb(34, 34, 100);
+}
+#table {
+  margin-top: 10px;
+  width: 100%;
+  border-collapse: collapse;
+}
+.th {
+  width: 100%;
+  height: 50px;
+  background-color: rgb(18, 18, 18);
+  color: white;
+}
+.th,
+.td {
+  width: 200px;
+  height: 50px;
+  text-align: left;
+  padding-left: 10px;
+}
+#tbody {
+  width: 100%;
+}
+#image {
+  width: 50px;
+  height: 50px;
+}
+#avatar {
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+}
